@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My portfolio</title>
+    <style>
+        .first
+
+        {
+        text-align:center
+        ;
+        }
+    </style>
+</head>
+<body>
+<div id="loading">loading....</div>
+
+<div class ="first" id="maincontainer">
+
+
+<img
+     height ="150"
+     width="150"
+     id="Profileimage">
+<h2 id="fullname"</h2>
+<p id="bio"</p>
+<h5 id="followersinformation" hidden> </h5>
+    <p>
+        check me on <a id="githublink">Github</a>
+    </p>
+    <a class="twitter-timeline" data-width="300" data-height="400" href="https://twitter.com/Suvey57?ref_src=twsrc%5Etfw">Tweets by Suvey57</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<script>
+
+    fetch("https://api.github.com/users/suvey57")
+    .then(response => response.json())
+    .then function(data)
+    {console.log(data)}
+
+    let followerscount=data['followers']
+    let followersInfo= 'I have been followed by $(follwerscount) awesome people on github.
+   document.getElementbyId('profile image').src=['avatar_url']
+    document.getElementbyId('full name').textcontent=['name']
+     document.getElementbyId('bio').textcontent=['avatar_url']
+      document.getElementbyId('followersinformation').textcontent=['followersinfo']
+       document.getElementbyId('githublink').href=['html_url']
+       document.getElementbyId('maincontainer').hidden=false
+          document.getElementbyId('loading').hidden=true
+
+</script>
+</body>
+</html>
